@@ -1,20 +1,18 @@
 from datetime import datetime
 
-import math
-
 found_primes = [1, 2]
 current_value = 3
+last_tstamp = datetime.now()
 
 # print("      1 : 1")
 # print("      2 : 2")
 
 while True:
-    current_value_sqrt = math.sqrt(current_value)
     found_divider = False
     
     for divider in found_primes[1:]:
 
-        if divider > current_value_sqrt:
+        if divider * divider > current_value:
             break
 
         if current_value % divider == 0:
@@ -28,9 +26,11 @@ while True:
         found_primes.append(current_value)
 
         if len(found_primes) % 1000 == 0:
-            print(f"{len(found_primes):7} @ {datetime.now()} : {current_value}")
+            now_tstamp = datetime.now()
+            print(f"{len(found_primes):7} @ {now_tstamp} : {current_value} took {now_tstamp - last_tstamp}")
+            last_tstamp = now_tstamp
 
         if len(found_primes) >= 1000000:
             break
 
-    current_value = current_value + 1
+    current_value = current_value + 2

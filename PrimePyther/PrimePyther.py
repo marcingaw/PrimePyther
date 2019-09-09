@@ -19,13 +19,11 @@ while True:
             found_divider = True
             break
 
-        divider = divider + 1
-
     if not found_divider:
         # print(f"{len(found_primes):7} : {current_value}")
         found_primes.append(current_value)
 
-        if len(found_primes) % 1000 == 0:
+        if len(found_primes) % 10000 == 0:
             now_tstamp = datetime.now()
             print(f"{len(found_primes):7} @ {now_tstamp} : {current_value} took {now_tstamp - last_tstamp}")
             last_tstamp = now_tstamp

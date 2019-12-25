@@ -25,7 +25,7 @@ while True:
 
         if len(found_primes) % 10000 == 0:
             now_tstamp = datetime.now()
-            print(f"{len(found_primes):7} @ {now_tstamp} : {current_value} took {now_tstamp - last_tstamp}")
+            print(f"{len(found_primes):7} @ {now_tstamp} : {current_value:8} took {now_tstamp - last_tstamp}")
             last_tstamp = now_tstamp
 
         if len(found_primes) >= 1000000:
